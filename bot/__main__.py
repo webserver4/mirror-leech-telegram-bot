@@ -94,7 +94,7 @@ async def stats(_, message):
 
 async def start(client, message):
     buttons = ButtonMaker()
-    buttons.ubutton("Repo", "https://www.github.com/anasty17/mirror-leech-telegram-bot")
+    buttons.ubutton("Repo", "https://www.github.com/aryanchy449/mirror-leech-telegram-bot")
     buttons.ubutton("Owner", "https://t.me/anas_tayyar")
     reply_markup = buttons.build_menu(2)
     if await CustomFilters.authorized(client, message):
@@ -127,7 +127,7 @@ async def restart(_, message):
     await sync_to_async(clean_all)
     await sleep(1)
     proc1 = await create_subprocess_exec(
-        "pkill", "-9", "-f", "gunicorn|aria2c|qbittorrent-nox|ffmpeg|rclone|java"
+        "pkill", "-9", "-f", "gunicorn|aria2c|ffmpeg|rclone|java"
     )
     proc2 = await create_subprocess_exec("python3", "update.py")
     await gather(proc1.wait(), proc2.wait())
